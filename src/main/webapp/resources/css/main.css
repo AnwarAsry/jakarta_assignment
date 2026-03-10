@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(0.25turn, #65AFFF, #41D3BD);
+}
+
+h2 {
+    padding-bottom: 6px;
+    border-bottom: 2px solid #333;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+label {
+    margin-bottom: 4px;
+    display: block;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+}
+
+.btn {
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 10px 24px;
+    border: none;
+    color: white;
+    background: #333;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    color: white;
+    background: #333;
+}
+
+tr:nth-child(even) {
+    background: #eee;
+}
