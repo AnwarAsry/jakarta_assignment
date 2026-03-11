@@ -4,56 +4,130 @@
     box-sizing: border-box;
 }
 
+:root {
+    --surface: #1a1a1a;
+    --surface2: #242424;
+    --border: #2e2e2e;
+    --accent: #c8f560;
+    --accent-dim: #9eb83e;
+    --text: #f0f0f0;
+    --text-muted: #888;
+}
+
 body {
     background: linear-gradient(0.25turn, #65AFFF, #41D3BD);
 }
 
-h2 {
-    padding-bottom: 6px;
-    border-bottom: 2px solid #333;
+.page-wrapper {
+    max-width: 760px;
+    margin: 0 auto;
 }
 
-.form-group {
-    margin-bottom: 12px;
+.card {
+    margin-bottom: 40px;
+    padding: 36px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
 }
 
-label {
-    margin-bottom: 4px;
+.card-label {
+    margin-bottom: 20px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    margin-bottom: 8px;
     display: block;
-    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
 }
 
-input {
+.field input {
     width: 100%;
-    padding: 8px;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    color: var(--text);
+    background: var(--surface2);
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.btn {
+.btn-submit {
     cursor: pointer;
-    margin-top: 10px;
-    padding: 10px 24px;
+    margin-top: 8px;
+    padding: 13px 32px;
     border: none;
-    color: white;
-    background: #333;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #0f0f0f;
+    background: var(--accent);
+    transition: background 0.2s, transform 0.1s;
 }
 
-table {
+.btn-submit:hover {
+    background: var(--accent-dim);
+}
+
+.btn-submit:active {
+    transform: scale(0.98);
+}
+
+.section-label {
+    margin-bottom: 16px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+}
+
+.user-table {
     width: 100%;
-    margin-top: 20px;
     border-collapse: collapse;
 }
 
-th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
+.user-table thead tr {
+    border-bottom: 1px solid var(--border);
+}
+
+.user-table th {
+    padding: 0 16px 12px 16px;
+    font-size: 0.7rem;
+    font-weight: 500;
     text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
 }
 
-th {
-    color: white;
-    background: #333;
+.user-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text);
 }
 
-tr:nth-child(even) {
-    background: #eee;
+.user-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.user-table tbody tr:hover td {
+    background: var(--surface2);
 }

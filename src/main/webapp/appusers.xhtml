@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="jakarta.faces.core"
-      xmlns:h="jakarta.faces.html">
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
 <f:view>
     <h:head>
+        <title>App Users</title>
         <h:outputStylesheet library="css" name="main.css"/>
     </h:head>
-    <h:body>
-        <h2>Add New User</h2>
-        <h:form>
-            <div class="form-group">
-                <h:outputLabel for="username" value="Username:"/>
-                <h:inputText id="username" value="#{appUserBean.username}" required="true"/>
-            </div>
-            <div class="form-group">
-                <h:outputLabel for="password" value="Password:"/>
-                <h:inputSecret id="password" value="#{appUserBean.password}" required="true"/>
-            </div>
-            <h:commandButton styleClass="btn" value="Save User" action="#{appUserBean.saveUser()}"/>
-        </h:form>
 
-        <h2>All Users</h2>
-        <h:dataTable value="#{appUserBean.getUsers()}" var="user">
-            <h:column>
-                <f:facet name="header">ID</f:facet>
-                #{user.id}
-            </h:column>
-            <h:column>
-                <f:facet name="header">Username</f:facet>
-                #{user.username}
-            </h:column>
-        </h:dataTable>
+    <h:body>
+        <div class="page-wrapper">
+            <div class="card">
+                <h3 class="card-label">New User</h3>
+                <h:form>
+                    <div class="field">
+                        <h:outputLabel for="username" value="Username"/>
+                        <h:inputText id="username" value="#{appUserBean.username}" required="true"/>
+                    </div>
+                    <div class="field">
+                        <h:outputLabel for="password" value="Password"/>
+                        <h:inputSecret id="password" value="#{appUserBean.password}" required="true"/>
+                    </div>
+                    <h:commandButton value="Save User" action="#{appUserBean.saveUser()}" styleClass="btn-submit"/>
+                </h:form>
+            </div>
+
+            <h3 class="section-label">All Users</h3>
+            <h:dataTable value="#{appUserBean.users}" var="user" styleClass="user-table"
+                         headerClass="user-table-header">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    #{user.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Username</f:facet>
+                    #{user.username}
+                </h:column>
+            </h:dataTable>
+        </div>
     </h:body>
 </f:view>
 </html>
