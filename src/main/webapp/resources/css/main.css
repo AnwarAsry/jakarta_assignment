@@ -114,7 +114,6 @@ body {
     text-align: left;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--text-muted);
 }
 
 .user-table td {
