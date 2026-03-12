@@ -30,7 +30,9 @@ public class AppUserRepositoryImpl implements AppUserRepository {
     @Override
     public AppUser findByUsernameAndPassword(String username, String password) {
         return em.createQuery(
-                        "SELECT u FROM AppUser u WHERE u.username = :username AND u.password = :password", AppUser.class)
+                        "SELECT u FROM AppUser u WHERE u.username = ?1 AND u.password = ?2", AppUser.class)
+                .setParameter(1, username)
+                .setParameter(2, password)
                 .getSingleResult();
     }
 }
