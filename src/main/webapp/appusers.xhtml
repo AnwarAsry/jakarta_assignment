@@ -41,6 +41,15 @@
                 </h:column>
             </h:dataTable>
         </div>
+        <script>
+            const links = document.getElementsByTagName("link");
+
+            for (let link of links) {
+                const url = new URL(link.href);
+                url.searchParams.set("v", Date.now());
+                link.href = url.toString();
+            }
+        </script>
     </h:body>
 </f:view>
 </html>
