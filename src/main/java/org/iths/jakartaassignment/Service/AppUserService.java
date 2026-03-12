@@ -31,11 +31,6 @@ public class AppUserService {
 
     // login method
     public AppUser login(String username, String password) {
-        return appUserRepository
-                .findAll()
-                .stream()
-                .filter(u -> u.getUsername().equals(username) && u.getPassword().equals(password))
-                .findFirst()
-                .orElse(null);
+        return appUserRepository.findByUsernameAndPassword(username, password);
     }
 }

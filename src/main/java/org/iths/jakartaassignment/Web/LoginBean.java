@@ -6,31 +6,29 @@ import jakarta.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
 import org.iths.jakartaassignment.Model.AppUser;
-import org.iths.jakartaassignment.Repository.AppUserRepository;
 import org.iths.jakartaassignment.Service.AppUserService;
-
-import java.io.Serializable;
 
 @Named
 @RequestScoped
 @Getter
 @Setter
-public class LoginBean implements Serializable {
-    private static final long serialVersionUID = 1L;
-
+public class LoginBean {
     private String username;
     private String password;
+    private String errorMessage;
 
     @Inject
     private AppUserService appUserService;
     @Inject
-    private AppUserRepository appUserRepositoryImp;
+    private SessionBean sessionBean;
 
     public String login() {
         AppUser user = appUserService.login(username, password);
         if (user != null) {
-            return "";
+            sessionBean.setAppUser(user);
+            return "appuser";
         } else {
+            errorMessage = "Could not find user";
             return null;
         }
     }
