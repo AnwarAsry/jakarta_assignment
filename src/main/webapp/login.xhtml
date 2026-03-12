@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+<f:view>
+    <h:head>
+    </h:head>
+    <h:body>
+        <div class="card">
+            <h3 class="card-label">Login</h3>
+            <h:form>
+                <div class="field">
+                    <h:outputLabel for="username" value="Username"/>
+                    <h:inputText id="username" value="#{loginBean.username}" required="true"/>
+                </div>
+                <div class="field">
+                    <h:outputLabel for="password" value="Password"/>
+                    <h:inputSecret id="password" value="#{loginBean.password}" required="true"/>
+                </div>
+                <h:commandButton value="Login" action="#{loginBean.login()}" styleClass="btn-submit"/>
+            </h:form>
+            <h:outputText id="errorMsg" value="#{loginBean.errorMessage}"/>
+        </div>
+    </h:body>
+</f:view>
+</html>
