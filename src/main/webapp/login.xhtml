@@ -20,6 +20,7 @@
                 </div>
                 <h:commandButton value="Login" action="#{loginBean.login()}" styleClass="btn-submit"/>
             </h:form>
+            <h:outputText id="errorMsg" value="#{loginBean.errorMessage}"/>
         </div>
     </h:body>
 </f:view>
