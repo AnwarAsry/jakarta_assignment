@@ -28,4 +28,14 @@ public class AppUserService {
     public List<AppUser> getAllUsers() {
         return appUserRepository.findAll();
     }
+
+    // login method
+    public AppUser login(String username, String password) {
+        return appUserRepository
+                .findAll()
+                .stream()
+                .filter(u -> u.getUsername().equals(username) && u.getPassword().equals(password))
+                .findFirst()
+                .orElse(null);
+    }
 }
