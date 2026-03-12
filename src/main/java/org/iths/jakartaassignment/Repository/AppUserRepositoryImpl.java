@@ -26,4 +26,11 @@ public class AppUserRepositoryImpl implements AppUserRepository {
         return em.createQuery("SELECT u FROM AppUser u", AppUser.class)
                 .getResultList();
     }
+
+    @Override
+    public AppUser findByUsernameAndPassword(String username, String password) {
+        return em.createQuery(
+                        "SELECT u FROM AppUser u WHERE u.username = :username AND u.password = :password", AppUser.class)
+                .getSingleResult();
+    }
 }
