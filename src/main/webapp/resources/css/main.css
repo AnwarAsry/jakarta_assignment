@@ -15,7 +15,7 @@
 }
 
 body {
-    font-family: "Sans Serif Collection";
+    font-family: 'DM Sans', sans-serif;
 }
 
 .page-wrapper {
@@ -121,13 +121,8 @@ body {
     padding: 14px 16px;
     border-bottom: 1px solid var(--border);
     font-size: 0.9rem;
-    color: var(--text);
 }
 
 .user-table tbody tr:last-child td {
     border-bottom: none;
-}
-
-.user-table tbody tr:hover td {
-    background: var(--surface2);
 }
