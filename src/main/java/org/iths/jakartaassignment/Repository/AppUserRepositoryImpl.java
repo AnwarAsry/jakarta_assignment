@@ -33,6 +33,6 @@ public class AppUserRepositoryImpl implements AppUserRepository {
                         "SELECT u FROM AppUser u WHERE u.username = ?1 AND u.password = ?2", AppUser.class)
                 .setParameter(1, username)
                 .setParameter(2, password)
-                .getSingleResult();
+                .getSingleResultOrNull();
     }
 }
