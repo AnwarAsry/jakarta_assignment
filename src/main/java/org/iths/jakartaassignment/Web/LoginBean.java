@@ -25,7 +25,7 @@ public class LoginBean {
     public String login() {
         AppUser user = appUserService.login(username, password);
         if (user != null) {
-            sessionBean.setAppUser(user);
+            sessionBean.setLoggedInUser(user);
             return "appuser";
         } else {
             errorMessage = "Could not find user";

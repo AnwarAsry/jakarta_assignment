@@ -6,9 +6,7 @@
 <f:view>
     <h:head>
         <title>App Users Updated</title>
-        <h:outputStylesheet library="css" name="main.css">
-            <f:param name="v" value="#{appUserBean.timeStamp}"/>
-        </h:outputStylesheet>
+        <h:outputStylesheet library="css" name="main.css"/>
     </h:head>
 
     <h:body>
@@ -41,15 +39,6 @@
                 </h:column>
             </h:dataTable>
         </div>
-        <script>
-            const links = document.getElementsByTagName("link");
-
-            for (let link of links) {
-                const url = new URL(link.href);
-                url.searchParams.set("v", Date.now());
-                link.href = url.toString();
-            }
-        </script>
     </h:body>
 </f:view>
 </html>

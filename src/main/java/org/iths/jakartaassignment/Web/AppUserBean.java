@@ -33,8 +33,4 @@ public class AppUserBean implements Serializable {
         username = "";
         password = "";
     }
-
-    public long getTimeStamp() {
-        return System.currentTimeMillis();
-    }
 }
