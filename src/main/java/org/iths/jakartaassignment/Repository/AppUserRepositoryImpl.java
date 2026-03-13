@@ -2,6 +2,7 @@ package org.iths.jakartaassignment.Repository;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.iths.jakartaassignment.Model.AppUser;
@@ -29,10 +30,14 @@ public class AppUserRepositoryImpl implements AppUserRepository {
 
     @Override
     public AppUser findByUsernameAndPassword(String username, String password) {
-        return em.createQuery(
-                        "SELECT u FROM AppUser u WHERE u.username = ?1 AND u.password = ?2", AppUser.class)
-                .setParameter(1, username)
-                .setParameter(2, password)
-                .getSingleResultOrNull();
+        try {
+            return em.createQuery(
+                            "SELECT u FROM AppUser u WHERE u.username = ?1 AND u.password = ?2", AppUser.class)
+                    .setParameter(1, username)
+                    .setParameter(2, password)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }
