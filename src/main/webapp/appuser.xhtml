@@ -4,12 +4,14 @@
       xmlns:f="jakarta.faces.core"
       xmlns:h="jakarta.faces.html">
 <f:view>
-    <h:head></h:head>
+    <h:head>
+        <title>ChatHomepage - #{sessionBean.loggedInUser.username}</title>
+        <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
     <h:body>
-        <h:outputText value="#{sessionBean.appUser.username}"/>
+        <h:outputText value="#{sessionBean.loggedInUser.username}"/>
 
-        <div id="messages">
-        </div>
+        <div id="messages"></div>
         <h:inputText id="msg"/>
         <button onclick="send()">Send Message</button>
 

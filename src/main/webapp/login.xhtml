@@ -5,6 +5,7 @@
       xmlns:h="jakarta.faces.html">
 <f:view>
     <h:head>
+        <title>ChatHomepage - Login</title>
     </h:head>
     <h:body>
         <div class="card">
@@ -18,9 +19,13 @@
                     <h:outputLabel for="password" value="Password"/>
                     <h:inputSecret id="password" value="#{loginBean.password}" required="true"/>
                 </div>
+                <h:messages styleClass="error-message"/>
+
+                <h:panelGroup rendered="#{not empty loginBean.errorMessage}">
+                    <p class="error-message">#{loginBean.errorMessage}</p>
+                </h:panelGroup>
                 <h:commandButton value="Login" action="#{loginBean.login()}" styleClass="btn-submit"/>
             </h:form>
-            <h:outputText id="errorMsg" value="#{loginBean.errorMessage}"/>
         </div>
     </h:body>
 </f:view>
