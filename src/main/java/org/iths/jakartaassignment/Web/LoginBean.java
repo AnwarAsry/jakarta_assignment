@@ -29,6 +29,8 @@ public class LoginBean {
             return "appuser";
         } else {
             errorMessage = "Could not find user";
+            username = "";
+            password = "";
             return null;
         }
     }
