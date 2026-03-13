@@ -9,15 +9,16 @@
         <h:outputStylesheet library="css" name="main.css"/>
     </h:head>
     <h:body>
-        <h:outputText value="#{sessionBean.loggedInUser.username}"/>
+        <div class="page-wrapper">
+            <h:outputText value="#{sessionBean.loggedInUser.username}"/>
 
-        <div id="messages">
+            <div id="messages">
+            </div>
+            <h:inputText id="msg"/>
+            <button onclick="send()">Send Message</button>
+
+            <h:commandButton value="Log out" action="#{sessionBean.logout()}"/>
         </div>
-        <h:inputText id="msg"/>
-        <button onclick="send()">Send Message</button>
-
-        <h:commandButton value="Log out" action="#{sessionBean.logout()}"/>
-
         <script>
             const username = "Anwar";
             const socket = new WebSocket("ws://anwars-dator:8080/websocketserver/ws/chat");
