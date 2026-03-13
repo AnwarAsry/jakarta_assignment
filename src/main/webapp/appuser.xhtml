@@ -9,18 +9,7 @@
         <h:outputStylesheet library="css" name="main.css"/>
     </h:head>
     <h:body>
-        <div class="page-wrapper">
-            <h:outputText value="#{sessionBean.loggedInUser.username}"/>
-
-            <div id="messages">
-            </div>
-            <h:inputText id="msg"/>
-            <button onclick="send()">Send Message</button>
-
-            <h:commandButton value="Log out" action="#{sessionBean.logout()}"/>
-        </div>
         <script>
-            const username = "Anwar";
             const socket = new WebSocket("ws://anwars-dator:8080/websocketserver/ws/chat");
 
             socket.onmessage = (event) => {
@@ -30,16 +19,28 @@
                 div.appendChild(p);
             }
 
-            socket.onopen = () => {
-                console.log("Ansluten")
-            }
-
-            const send = () => {
-                let text = document.getElementById("msg").textContent;
-                socket.send(username + ": " + text);
-                document.getElementById("msg").value = "";
+            function sendMessage() {
+                const msg = document.getElementById("msg").value;
+                socket.send(msg);
             }
         </script>
+
+        <div class="page-wrapper">
+            <div class="card">
+                <div id="log">
+                </div>
+                <div class="field chat-input-row">
+                    <h:inputText id="msg" styleClass="chat-input"/>
+                    <button onclick="sendMessage()" class="btn-submit">Send</button>
+                </div>
+            </div>
+
+            <h:form>
+                <h:commandButton value="Logout"
+                                 action="#{sessionBean.logout}"
+                                 styleClass="btn-logout"/>
+            </h:form>
+        </div>
     </h:body>
 </f:view>
 </html>

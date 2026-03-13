@@ -132,3 +132,59 @@ body {
     color: #ff5f5f;
     background: rgba(255, 95, 95, 0.08);
 }
+
+#log {
+    min-height: 300px;
+    max-height: 400px;
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow-y: auto;
+    background: var(--surface2);
+}
+
+#log p {
+    margin: 0;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--surface);
+}
+
+#log:empty::before {
+    content: "No messages yet...";
+    margin: auto;
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.chat-input-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.btn-logout {
+    cursor: pointer;
+    margin-top: 16px;
+    padding: 10px 24px;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted) !important;
+    background: var(--surface2) !important;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-logout:hover {
+    border-color: #ff5f5f !important;
+    color: #ff5f5f !important;
+}
