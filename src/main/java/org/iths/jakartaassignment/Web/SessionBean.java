@@ -1,6 +1,7 @@
 package org.iths.jakartaassignment.Web;
 
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +18,9 @@ public class SessionBean implements Serializable {
 
     private AppUser loggedInUser;
 
-    public void logout() {
+    public String logout() {
         loggedInUser = null;
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return "/login?faces-redirect=true";
     }
 }

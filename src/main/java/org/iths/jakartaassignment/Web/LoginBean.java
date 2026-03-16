@@ -26,7 +26,7 @@ public class LoginBean {
         AppUser user = appUserService.login(username, password);
         if (user != null) {
             sessionBean.setLoggedInUser(user);
-            return "appuser";
+            return "/appuser.xhtml?faces-redirect=true";
         } else {
             errorMessage = "Could not find user";
             username = "";
